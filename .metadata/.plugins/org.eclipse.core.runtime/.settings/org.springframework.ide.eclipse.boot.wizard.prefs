@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-rest=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.restdocs=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.web=1
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=n26-api
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.0.0.RELEASE
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Web Services for N26 2Day Challenge
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.joedianreid
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=1.8
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=joediann26
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.joedianreid.n26
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=0.0.1-SNAPSHOT
