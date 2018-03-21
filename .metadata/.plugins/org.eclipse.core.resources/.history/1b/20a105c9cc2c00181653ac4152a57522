@@ -19,9 +19,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.joedianreid.n26.controller.TransactionController;
 import com.joedianreid.n26.models.Transaction;
-import com.joedianreid.n26.services.TransactionService;
 
 @RunWith(SpringRunner.class)
+@WebMvcTest(TransactionController.class)
 public class TransactionControllerTest {
 
 	@Autowired 
@@ -30,10 +30,7 @@ public class TransactionControllerTest {
     @Autowired 
     private ObjectMapper objectMapper;    
     
-    @Autowired
-	private TransactionService transactionService;
-    
-    private JacksonTester <Transaction> jsonTester;
+    private JacksonTester < Transaction > jsonTester;
     
     private Transaction transaction;
     

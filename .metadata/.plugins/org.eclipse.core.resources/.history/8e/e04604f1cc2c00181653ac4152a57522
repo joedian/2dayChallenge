@@ -22,6 +22,7 @@ import com.joedianreid.n26.models.Transaction;
 import com.joedianreid.n26.services.TransactionService;
 
 @RunWith(SpringRunner.class)
+@WebMvcTest(TransactionController.class)
 public class TransactionControllerTest {
 
 	@Autowired 
@@ -33,7 +34,7 @@ public class TransactionControllerTest {
     @Autowired
 	private TransactionService transactionService;
     
-    private JacksonTester <Transaction> jsonTester;
+    private JacksonTester < Transaction > jsonTester;
     
     private Transaction transaction;
     

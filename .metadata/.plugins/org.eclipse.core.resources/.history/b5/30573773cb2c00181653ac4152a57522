@@ -23,9 +23,9 @@ import com.joedianreid.n26.models.TransactionResponse;
 @DirtiesContext(methodMode=MethodMode.BEFORE_METHOD)
 public class Joediann26ApplicationTests {
 	
-	Instant instant = Instant.now();
+Instant instant = Instant.now();
     
-    Long timeNow = instant.toEpochMilli();
+    long timenow = instant.toEpochMilli();
 	
 	private Long minTimeAllowed = timeNow - 60000;
 	

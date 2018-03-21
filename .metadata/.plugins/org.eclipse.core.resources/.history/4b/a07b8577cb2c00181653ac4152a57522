@@ -25,7 +25,7 @@ public class Joediann26ApplicationTests {
 	
 	Instant instant = Instant.now();
     
-    Long timeNow = instant.toEpochMilli();
+    Long timenow = instant.toEpochMilli();
 	
 	private Long minTimeAllowed = timeNow - 60000;
 	

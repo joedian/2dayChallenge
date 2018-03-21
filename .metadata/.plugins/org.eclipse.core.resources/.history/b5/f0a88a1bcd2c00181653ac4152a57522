@@ -33,7 +33,7 @@ public class TransactionControllerTest {
     @Autowired
 	private TransactionService transactionService;
     
-    private JacksonTester <Transaction> jsonTester;
+    private JacksonTester < Transaction > jsonTester;
     
     private Transaction transaction;
     
