@@ -4,8 +4,6 @@ import static org.springframework.restdocs.mockmvc.MockMvcRestDocumentation.docu
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import java.time.Instant;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -36,10 +34,6 @@ public class TransactionControllerTest {
     
     private Transaction transaction;
     
-    Instant instant = Instant.now();
-    
-    long timeStampMillis = instant.toEpochMilli();
-    
     @Before
     public void setup() {
         JacksonTester.initFields(this, objectMapper);
@@ -49,7 +43,7 @@ public class TransactionControllerTest {
     @Test
     public void test_201() throws Exception {
     	transaction.setAmount(200D);
-    	transaction.setTimestamp(timeStampMillis - 1000);
+    	transaction.setTimestamp(System.currentTimeMillis() - 1000);
         final String trans = jsonTester.write(transaction).getJson();
         
         mockMvc

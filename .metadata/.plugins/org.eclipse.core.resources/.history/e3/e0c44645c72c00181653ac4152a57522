@@ -21,7 +21,7 @@ public class TransactionController {
 	@Autowired
 	private TransactionService transactionService;
 	
-	@RequestMapping(value = "/transactions", method = RequestMethod.POST, produces=MediaType.APPLICATION_JSON_UTF8_VALUE)
+	@RequestMapping(value = "/transactions", method = RequestMethod.POST)
 	public TransactionResponse createTransaction(@RequestBody Transaction transaction){
 				
 		boolean transactionAdded = transactionService.addTransaction(transaction);

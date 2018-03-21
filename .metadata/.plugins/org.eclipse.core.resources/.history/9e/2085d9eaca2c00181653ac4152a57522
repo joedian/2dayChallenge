@@ -1,6 +1,5 @@
 package com.joedianreid.n26.services;
 
-import java.time.Instant;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.PriorityBlockingQueue;
@@ -117,10 +116,7 @@ public class StatisticService {
 	 * @return
 	 */
 	public static boolean isInvalidTimestamp(Long transactionTime){
-		Instant instant = Instant.now();
-		
-		long currentTimeInMilliseconds = instant.toEpochMilli();
-		
+		Long currentTimeInMilliseconds = System.currentTimeMillis();
 		Long oldestTimeAccepted = currentTimeInMilliseconds - MAX_MILLISECONDS_HELD;
 		
 		if( transactionTime < oldestTimeAccepted || transactionTime > currentTimeInMilliseconds)

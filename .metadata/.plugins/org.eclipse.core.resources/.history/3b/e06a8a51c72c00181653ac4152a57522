@@ -14,7 +14,8 @@ public class StatisticsController {
 	@Autowired
 	private StatisticService statisticService;
 	
-	@RequestMapping(value = "/statistics",		method = RequestMethod.GET)
+	@RequestMapping(value = "/statistics",
+    		method = RequestMethod.GET)
 	public Statistic getStatistics(){
 	
 		return statisticService.getStatistics();
