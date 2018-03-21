@@ -1,0 +1,54 @@
+package com.joedianreid.n26.services;
+
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.PriorityBlockingQueue;
+
+public class StatisticService {
+	private Queue<Double> transactionQueue = new ConcurrentLinkedQueue<>();
+	
+	private Double sum = 0D;
+	
+	private int sizeToResizeAt  = 59;
+	
+	public synchronized boolean addToQue(Double amount){
+		boolean success = false;
+		
+		if(transactionQueue.isEmpty()){
+			transactionQueue = new ConcurrentLinkedQueue<>();
+		}else{
+			if(transactionQueue.size() > sizeToResizeAt){
+				transactionQueue.poll();// remove the oldest value
+			}
+			
+			transactionQueue.add(amount);//add the new value
+			
+		}
+		
+		return success;
+	}
+	
+	
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public synchronized Double getSum(){
+		return new Double(sum.doubleValue()); //create a copy of the object
+	}
+	
+	/**
+	 * Update SUM inside synchronised block to prevent concurrent update
+	 * 
+	 * @param newTransactionAmount
+	 * @param removedTransactionAmount
+	 */
+	private void updateSum(Double newTransactionAmount, Double removedTransactionAmount){
+		synchronized (sum) {
+			sum +=newTransactionAmount;
+			sum -= removedTransactionAmount;
+		}
+	}
+	
+}

@@ -42,9 +42,12 @@
 		<dependency>
 			<groupId>org.springframework.restdocs</groupId>
 			<artifactId>spring-restdocs-mockmvc</artifactId>
-			<scope>test</scope>
+			<scope>test</scope> 
 		</dependency>
+
 	</dependencies>
+	
+	
 
 	<build>
 		<plugins>

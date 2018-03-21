@@ -1,0 +1,69 @@
+package com.joedianreid.n26.services;
+
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import com.joedianreid.n26.models.Statistic;
+
+public class StatisticService {
+
+	private Queue<Double> transactionQueue = new ConcurrentLinkedQueue<>();
+
+	private Statistic statistic = new Statistic();
+
+	private int sizeToResizeAt = 59;
+	
+	public synchronized boolean addToQue(Double amount) {
+		
+		boolean success = false;
+
+		if (transactionQueue.isEmpty()) {
+			
+			transactionQueue = new ConcurrentLinkedQueue<>();
+			
+		} else {
+			
+			if (transactionQueue.size() == sizeToResizeAt) {
+				
+				transactionQueue.poll();// remove the oldest value
+			}
+		}
+		
+		transactionQueue.add(amount);// add the new value		
+
+		return success;
+	}
+
+
+	/**
+	 * Update SUM inside synchronised block to prevent concurrent update
+	 * 
+	 * @param newTransactionAmount
+	 * @param removedTransactionAmount
+	 */
+	private Statistic getStatistics() {
+		
+		Statistic statistic = new Statistic();
+		
+		synchronized (transactionQueue) {
+			
+			for(Double amount: transactionQueue){
+				statistic.setSum(statistic.getSum() + amount);
+				
+				if(amount > statistic.getMax()){
+					statistic.setMax(amount);
+				}
+				
+				if(amount < statistic.getMin()){
+					statistic.setMin(amount);
+				}
+			}
+			
+			statistic.setAvg(new Double(statistic.getSum() / transactionQueue.size()));
+			
+			statistic.setCount(transactionQueue.size());					
+		}
+		
+		return statistic;
+	}
+
+}

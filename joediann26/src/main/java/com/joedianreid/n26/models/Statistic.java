@@ -4,15 +4,16 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class Statistic {
-	private Double sum;
 	
-	private Double avg;
+	private Double sum = 0D;
 	
-	private Double max;
+	private Double avg = 0D;
 	
-	private Double min;
+	private Double max = 0D;
 	
-	private Integer count;
+	private Double min = Double.MAX_VALUE;
+	
+	private Integer count = 0;
 
 	public Double getSum() {
 		return sum;
@@ -52,6 +53,11 @@ public class Statistic {
 
 	public void setCount(Integer count) {
 		this.count = count;
+	}
+
+	@Override
+	public String toString() {
+		return "Statistic [sum=" + sum + ", avg=" + avg + ", max=" + max + ", min=" + min + ", count=" + count + "]";
 	}
 	
 	

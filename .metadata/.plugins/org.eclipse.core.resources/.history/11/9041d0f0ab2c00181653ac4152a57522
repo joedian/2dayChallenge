@@ -1,0 +1,52 @@
+package com.joedianreid.n26;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+@SpringBootTest
+public class Joediann26ApplicationTests {
+	
+	Long timeNow = System.currentTimeMillis();
+	
+	int numberOfTestCalls = 62;
+	
+	int intervalOfCalls = 100;
+	
+	@Autowired
+    private MockMvc mockMvc;
+
+	@Test
+	public void contextLoads() {
+	}
+	
+	
+	
+	@Test
+    public void test_201() throws Exception {      
+        this.mockMvc.perform(post("/transaction")
+        		.accept(MediaType.APPLICATION_JSON_UTF8_VALUE)
+        		.content("{amount: 5000, timestamp: " + (timeNow - 1000 )+ "}"))
+                .andExpect(status().isCreated());
+    }
+
+    @Test
+    public void test_204() throws Exception {      
+        this.mockMvc.perform(post("/transaction")
+        		.accept(MediaType.APPLICATION_JSON_UTF8_VALUE)
+                .content("{amount: 5000, timestamp: " + (timeNow - 62000 )+ "}"))
+        		.andExpect(status().isNoContent());
+    }
+
+
+}

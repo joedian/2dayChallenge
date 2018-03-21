@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="Joediann26ApplicationTests" project="joediann26" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="com.joedianreid.n26.Joediann26ApplicationTests" time="62.911">
+    <testcase name="getStatistics" classname="com.joedianreid.n26.Joediann26ApplicationTests" time="0.19"/>
+    <testcase name="add62" classname="com.joedianreid.n26.Joediann26ApplicationTests" time="62.604"/>
+    <testcase name="contextLoads" classname="com.joedianreid.n26.Joediann26ApplicationTests" time="0.117"/>
+  </testsuite>
+</testrun>

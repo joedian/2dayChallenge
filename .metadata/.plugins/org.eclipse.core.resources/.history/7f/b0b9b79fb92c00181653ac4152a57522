@@ -1,0 +1,84 @@
+package com.joedianreid.n26;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.joedianreid.n26.controller.StatisticsController;
+import com.joedianreid.n26.controller.TransactionController;
+import com.joedianreid.n26.models.Transaction;
+
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+@SpringBootTest
+public class Joediann26ApplicationTests {
+	
+	Long timeNow = System.currentTimeMillis();
+	
+	int numberOfTestCalls = 62;
+	
+	int intervalOfCalls = 100;
+	
+	@Autowired
+	TransactionController transactionController;
+	
+	@Autowired
+	StatisticsController statisticsController;
+	
+	@Autowired
+    private MockMvc mockMvc;
+
+	@Test
+	public void contextLoads() {
+		assertThat(transactionController).isNotNull();
+	}
+		
+	@Test
+	public void add62() throws Exception{
+		int max = numberOfTestCalls;
+		
+		while(max > 0){
+			double random = Math.random() * 100;
+			transactionController.createTransaction(new Transaction(20D, ( timeNow - (1000))));
+			
+			statisticsController.getStatistics();		
+			
+			Thread.sleep(1000);
+			
+			max--;
+		}
+	}
+	
+	@Test
+	public void getStatistics(){		
+		statisticsController.getStatistics();		
+	}
+	
+	
+	
+	/*@Test
+    public void test_201() throws Exception {      
+        this.mockMvc.perform(post("/transactions")
+        		.accept(MediaType.APPLICATION_JSON)
+        		.requestAttr("amount",  200)
+        		.requestAttr("timestamp", timeNow))
+                .andExpect(status().isCreated()).andReturn();
+    }
+
+    @Test
+    public void test_204() throws Exception {      
+        this.mockMvc.perform(post("/transactions")
+        		.accept(MediaType.APPLICATION_JSON)
+        		.requestAttr("amount",  200)
+        		.requestAttr("timestamp", timeNow -62000))
+        		.andExpect(status().isNoContent()).andReturn();
+    }*/
+
+
+}

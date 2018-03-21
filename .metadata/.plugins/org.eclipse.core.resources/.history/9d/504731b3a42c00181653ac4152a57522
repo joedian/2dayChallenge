@@ -1,0 +1,32 @@
+package com.joedianreid.n26.services;
+
+import java.util.concurrent.atomic.AtomicInteger;
+
+import com.joedianreid.n26.models.Transaction;
+
+
+public class TransactionService {
+	
+	private AtomicInteger currentSum = new AtomicInteger(0);
+	private Long currentTimeInMilliseconds = System.currentTimeMillis();
+	
+	private static Long  MAX_MILLISECONDS_HELD = 60000L;
+	
+	
+	public boolean addTransaction(Transaction transaction){
+		boolean success = false;
+		
+		if(transaction == null || transaction.getTimestamp() == null || 
+				olderThan60Seconds(transaction.getTimestamp())){
+			return success;
+		}else{
+			
+		}
+		
+	}
+	
+	private boolean olderThan60Seconds(Long transactionTime){
+		return transactionTime < (currentTimeInMilliseconds - MAX_MILLISECONDS_HELD);
+	}
+
+}

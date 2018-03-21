@@ -1,0 +1,133 @@
+package com.joedianreid.n26;
+
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.annotation.DirtiesContext;
+import org.springframework.test.annotation.DirtiesContext.MethodMode;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.joedianreid.n26.controller.StatisticsController;
+import com.joedianreid.n26.controller.TransactionController;
+import com.joedianreid.n26.models.Statistic;
+import com.joedianreid.n26.models.Transaction;
+import com.joedianreid.n26.models.TransactionResponse;
+
+@RunWith(SpringRunner.class)
+@AutoConfigureMockMvc
+@SpringBootTest
+@DirtiesContext(methodMode=MethodMode.BEFORE_METHOD)
+public class Joediann26ApplicationTests {
+	
+	Long timeNow = System.currentTimeMillis();
+	
+	Long minTimeAllowed = timeNow - 60000;
+	
+	int numberOfTestCalls = 62;
+	
+	int intervalOfCalls = 100;
+	
+	@Autowired
+	TransactionController transactionController;
+	
+	@Autowired
+	StatisticsController statisticsController;
+	
+	@Autowired
+    private MockMvc mockMvc;
+
+	@Test
+	public void contextLoads() {
+		assertThat(transactionController).isNotNull();
+	}
+		
+	@Test
+	public void add62Random() throws Exception{
+		int max = numberOfTestCalls;
+		
+		while(max > 0){
+			Double random = new Double(Math.random() * 100);
+			random = Math.floor(random);
+			
+			long timeLog =  timeNow - 1000;
+			
+			TransactionResponse response = transactionController.createTransaction(new Transaction(random, timeLog));			
+					
+			Thread.sleep(1000);
+			
+			max--;
+		}
+		
+		Statistic statistic = statisticsController.getStatistics();	
+		
+		assertEquals(statistic.getMin(), 0.0D, 5.0D);
+		assertEquals(statistic.getMax(), 96.0D, 5.0D);
+		assertEquals(statistic.getAvg(), 46.0D, 5.0D);
+		assertEquals(statistic.getCount(), 60, 5);
+		assertEquals(statistic.getSum(), 2700, 200.0D);
+	}
+	
+	/*@Test
+	public void add62Fixed() throws Exception{
+		int max = numberOfTestCalls;
+		
+		while(max > 0){
+			Double random = 1D;
+			
+			long timeLog =  System.currentTimeMillis();
+			
+			TransactionResponse response = transactionController.createTransaction(new Transaction(random, timeLog));			
+					
+			Thread.sleep(1000); // sleep a second
+			
+			max--;
+		}
+		
+		Statistic statistic = statisticsController.getStatistics();	
+		
+		assertEquals(statistic.getMin(), 1D, 0D);
+		assertEquals(statistic.getMax(), 1D, 0D);
+		assertEquals(statistic.getAvg(), 1D, 1D);
+		assertEquals(statistic.getCount(), 60, 2);
+		assertEquals(statistic.getSum(), 60, 2D);
+	}
+	*/
+	
+	
+	@Test
+    public void test_201() throws Exception {      
+			
+		TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow -1000));			
+				
+		Thread.sleep(1000);			
+		
+		assertEquals(response.getResponseCode(), 201);
+		
+    }
+
+    @Test
+    public void test_204_future() throws Exception {      
+    	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow + 40000));			
+		
+		Thread.sleep(1000);			
+		
+		assertEquals(response.getResponseCode(), 204);
+    }
+    
+    
+    @Test
+    public void test_204_past() throws Exception {      
+    	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow - 200000));			
+		
+		Thread.sleep(1000);			
+		
+		assertEquals(response.getResponseCode(), 204);
+    }
+
+}

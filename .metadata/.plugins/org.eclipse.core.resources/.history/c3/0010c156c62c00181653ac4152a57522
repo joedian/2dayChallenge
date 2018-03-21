@@ -1,0 +1,53 @@
+package com.joedianreid.n26;
+
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.json.JacksonTester;
+import org.springframework.http.MediaType;
+import org.springframework.test.context.junit4.SpringRunner;
+import org.springframework.test.web.servlet.MockMvc;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.joedianreid.n26.controller.TransactionController;
+import com.joedianreid.n26.models.Transaction;
+
+@RunWith(SpringRunner.class)
+@SpringBootTest
+@WebMvcTest(TransactionController.class)
+public class TransactionControllerTest {
+
+	@Autowired 
+	private MockMvc mockMvc;
+	
+    @Autowired 
+    private ObjectMapper objectMapper;    
+    
+    private JacksonTester < Transaction > jsonTester;
+    
+    private Transaction transaction;
+    
+    @Before
+    public void setup() {
+        JacksonTester.initFields(this, objectMapper);
+        transaction = new Transaction();
+    }
+    
+    @Test
+    public void test_201() throws Exception {
+        final String trans = jsonTester.write(transaction).getJson();
+        
+        mockMvc
+            .perform(post("/transactions").content(trans).contentType(MediaType.APPLICATION_JSON_UTF8))
+            .andExpect(status().isCreated());
+       
+    }
+
+	
+}

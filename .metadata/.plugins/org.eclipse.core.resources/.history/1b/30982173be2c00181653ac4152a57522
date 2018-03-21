@@ -1,0 +1,92 @@
+package com.joedianreid.n26.services;
+
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+import org.springframework.stereotype.Service;
+
+import com.joedianreid.n26.models.Statistic;
+import com.joedianreid.n26.models.Transaction;
+
+@Service
+public class StatisticService {
+
+	private Queue<Transaction> transactionQueue = new ConcurrentLinkedQueue<>();
+
+	private int sizeToResizeAt = 59;
+	
+	/**
+	 * 
+	 * 
+	 * @param amount
+	 * @return
+	 */
+	public synchronized boolean addToQue(Transaction transaction) {
+		
+		boolean success = false;
+		
+		synchronized(transactionQueue){
+
+			if (transactionQueue.isEmpty()) {
+				
+				transactionQueue = new ConcurrentLinkedQueue<>();
+				
+			} else {
+				
+				if (transactionQueue.size() == sizeToResizeAt) {
+					
+					transactionQueue.poll();// remove the oldest value
+				}
+			}
+			
+			transactionQueue.add(transaction);// add the new value	
+		}
+		return success;
+	}
+
+
+	/**
+	 * Update Statistic inside synchronised block to prevent concurrent update of queue
+	 * 
+	 * @param newTransactionAmount
+	 * @param removedTransactionAmount
+	 */
+	public Statistic getStatistics() {
+		
+		Statistic statistic = new Statistic();
+		
+		synchronized (transactionQueue) {
+			
+			for(Transaction transaction: transactionQueue){
+				
+				statistic.setSum(statistic.getSum() + transaction.getAmount());
+				
+				if(transaction.getAmount() > statistic.getMax()){
+					statistic.setMax(transaction.getAmount());
+				}
+				
+				if(transaction.getAmount() < statistic.getMin()){
+					statistic.setMin(transaction.getAmount());
+				}
+				
+				statistic.setAvg(new Double(statistic.getSum() / transactionQueue.size()));
+				
+				statistic.setCount(transactionQueue.size());		
+			}
+			
+						
+		}
+		printQueue();
+		System.out.println(statistic.toString());
+		return statistic;
+	}
+	
+	private void printQueue(){
+		int count = 1;
+		for(Transaction transaction: transactionQueue){
+			System.out.println(count + " : " + transaction.toString());
+			count++;
+		}
+	}
+
+}
