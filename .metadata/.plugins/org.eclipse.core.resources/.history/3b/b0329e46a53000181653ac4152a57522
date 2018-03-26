@@ -1,6 +1,5 @@
 package com.joedianreid.n26.validators;
 import java.time.Instant;
-import java.time.ZoneOffset;
 
 import org.springframework.stereotype.Service;
 
@@ -53,7 +52,7 @@ public class TransactionValidators {
 	 * @return
 	 */
 	public static boolean isInvalidTimestamp(Long transactionTime){
-		long currentTimeInMilliseconds =  Instant.now().atOffset(ZoneOffset.UTC ).toInstant().toEpochMilli();
+		long currentTimeInMilliseconds = Instant.now().toEpochMilli();
 		
 		Long oldestTimeAccepted = currentTimeInMilliseconds - MAX_MILLISECONDS_HELD;
 		

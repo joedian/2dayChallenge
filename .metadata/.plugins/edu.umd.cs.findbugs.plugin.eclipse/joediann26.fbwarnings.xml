@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="3" timestamp="1522033977546" analysisTimestamp="1522033974968" release="">
+<BugCollection version="3.0.1-dev-20150306-5afe4d1" sequence="1" timestamp="1522034046831" analysisTimestamp="1522034037822" release="">
   <Project projectName="joediann26">
     <Jar>C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\target\classes</Jar>
+    <Jar>C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\target\test-classes</Jar>
     <AuxClasspathEntry>C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\target\classes</AuxClasspathEntry>
     <AuxClasspathEntry>C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\target\test-classes</AuxClasspathEntry>
     <AuxClasspathEntry>C:\Users\princ\.m2\repository\org\springframework\boot\spring-boot-starter-data-rest\2.0.0.RELEASE\spring-boot-starter-data-rest-2.0.0.RELEASE.jar</AuxClasspathEntry>
@@ -77,7 +78,62 @@
     <SrcDir>C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\src\test\java</SrcDir>
     <Cloud id="edu.umd.cs.findbugs.cloud.doNothingCloud" online="false"></Cloud>
   </Project>
-  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" first="3">
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="com.joedianreid.n26.Joediann26ApplicationTests">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Class>
+    <Method classname="com.joedianreid.n26.Joediann26ApplicationTests" name="test_204_future" signature="()V" isStatic="false">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="64" end="67" startBytecode="0" endBytecode="17" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Method>
+    <LocalVariable name="response" register="1" pc="35" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="64" end="64" startBytecode="34" endBytecode="34" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="64" end="64" startBytecode="34" endBytecode="34" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="response"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="DLS_DEAD_LOCAL_STORE" priority="2" rank="17" abbrev="DLS" category="STYLE" first="1">
+    <Class classname="com.joedianreid.n26.Joediann26ApplicationTests">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Class>
+    <Method classname="com.joedianreid.n26.Joediann26ApplicationTests" name="test_204_past" signature="()V" isStatic="false">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="72" end="75" startBytecode="0" endBytecode="17" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Method>
+    <LocalVariable name="response" register="1" pc="35" role="LOCAL_VARIABLE_NAMED"/>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="72" end="72" startBytecode="34" endBytecode="34" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="72" end="72" startBytecode="34" endBytecode="34" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.LOCAL_NAME" value="response"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.METHOD_RESULT" value="true"/>
+    <Property name="edu.umd.cs.findbugs.detect.DeadLocalStoreProperty.NO_LOADS" value="true"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.joedianreid.n26.Joediann26ApplicationTests">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Class>
+    <Field classname="com.joedianreid.n26.Joediann26ApplicationTests" name="intervalOfCalls" signature="I" isStatic="false">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Field>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="36" end="36" startBytecode="52" endBytecode="52" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.joedianreid.n26.Joediann26ApplicationTests">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Class>
+    <Field classname="com.joedianreid.n26.Joediann26ApplicationTests" name="minTimeAllowed" signature="Ljava/lang/Long;" isStatic="false">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Field>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="32" end="32" startBytecode="40" endBytecode="40" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+  </BugInstance>
+  <BugInstance type="URF_UNREAD_FIELD" priority="2" rank="18" abbrev="UrF" category="PERFORMANCE" first="1">
+    <Class classname="com.joedianreid.n26.Joediann26ApplicationTests">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Class>
+    <Field classname="com.joedianreid.n26.Joediann26ApplicationTests" name="numberOfTestCalls" signature="I" isStatic="false">
+      <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+    </Field>
+    <SourceLine classname="com.joedianreid.n26.Joediann26ApplicationTests" start="34" end="34" startBytecode="46" endBytecode="46" sourcefile="Joediann26ApplicationTests.java" sourcepath="com/joedianreid/n26/Joediann26ApplicationTests.java"/>
+  </BugInstance>
+  <BugInstance type="EQ_COMPARETO_USE_OBJECT_EQUALS" priority="2" rank="16" abbrev="Eq" category="BAD_PRACTICE" first="1">
     <Class classname="com.joedianreid.n26.models.Transaction">
       <SourceLine classname="com.joedianreid.n26.models.Transaction" sourcefile="Transaction.java" sourcepath="com/joedianreid/n26/models/Transaction.java"/>
     </Class>
@@ -85,22 +141,10 @@
       <SourceLine classname="com.joedianreid.n26.models.Transaction" start="60" end="60" startBytecode="0" endBytecode="63" sourcefile="Transaction.java" sourcepath="com/joedianreid/n26/models/Transaction.java"/>
     </Method>
   </BugInstance>
-  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" first="3">
+  <BugInstance type="SE_COMPARATOR_SHOULD_BE_SERIALIZABLE" priority="2" rank="19" abbrev="Se" category="BAD_PRACTICE" first="1">
     <Class classname="com.joedianreid.n26.models.Transaction">
       <SourceLine classname="com.joedianreid.n26.models.Transaction" start="1" end="60" sourcefile="Transaction.java" sourcepath="com/joedianreid/n26/models/Transaction.java"/>
     </Class>
-  </BugInstance>
-  <BugInstance type="ML_SYNC_ON_FIELD_TO_GUARD_CHANGING_THAT_FIELD" priority="1" rank="4" abbrev="ML" category="MT_CORRECTNESS" first="1" last="1" removedByChange="true">
-    <Class classname="com.joedianreid.n26.services.StatisticService">
-      <SourceLine classname="com.joedianreid.n26.services.StatisticService" sourcefile="StatisticService.java" sourcepath="com/joedianreid/n26/services/StatisticService.java"/>
-    </Class>
-    <Method classname="com.joedianreid.n26.services.StatisticService" name="addToQue" signature="(Lcom/joedianreid/n26/models/Transaction;)Z" isStatic="false">
-      <SourceLine classname="com.joedianreid.n26.services.StatisticService" start="58" end="69" startBytecode="0" endBytecode="182" sourcefile="StatisticService.java" sourcepath="com/joedianreid/n26/services/StatisticService.java"/>
-    </Method>
-    <Field classname="com.joedianreid.n26.services.StatisticService" name="transactionQueue" signature="Ljava/util/Queue;" isStatic="false">
-      <SourceLine classname="com.joedianreid.n26.services.StatisticService" sourcefile="StatisticService.java" sourcepath="com/joedianreid/n26/services/StatisticService.java"/>
-    </Field>
-    <SourceLine classname="com.joedianreid.n26.services.StatisticService" start="64" end="64" startBytecode="29" endBytecode="29" sourcefile="StatisticService.java" sourcepath="com/joedianreid/n26/services/StatisticService.java"/>
   </BugInstance>
   <BugInstance type="ML_SYNC_ON_FIELD_TO_GUARD_CHANGING_THAT_FIELD" priority="1" rank="4" abbrev="ML" category="MT_CORRECTNESS" first="1">
     <Class classname="com.joedianreid.n26.services.StatisticService">
@@ -115,9 +159,11 @@
     <SourceLine classname="com.joedianreid.n26.services.StatisticService" start="94" end="94" startBytecode="60" endBytecode="60" sourcefile="StatisticService.java" sourcepath="com/joedianreid/n26/services/StatisticService.java"/>
   </BugInstance>
   <Errors errors="0" missingClasses="0"></Errors>
-  <FindBugsSummary timestamp="Sun, 25 Mar 2018 21:12:16 -0600" total_classes="11" referenced_classes="94" total_bugs="3" total_size="239" num_packages="7" java_version="1.8.0_121" vm_version="25.121-b13" cpu_seconds="7.66" clock_seconds="2.58" peak_mbytes="1200.42" alloc_mbytes="1067.00" gc_seconds="0.42" priority_2="2" priority_1="1">
-    <PackageStats package="com.joedianreid.n26" total_bugs="0" total_types="1" total_size="6">
+  <FindBugsSummary timestamp="Sun, 25 Mar 2018 21:12:16 -0600" total_classes="13" referenced_classes="105" total_bugs="8" total_size="273" num_packages="7" java_version="1.8.0_121" vm_version="25.121-b13" cpu_seconds="10.98" clock_seconds="9.02" peak_mbytes="1201.64" alloc_mbytes="1067.00" gc_seconds="5.72" priority_2="7" priority_1="1">
+    <PackageStats package="com.joedianreid.n26" total_bugs="5" total_types="3" total_size="40" priority_2="5">
       <ClassStats class="com.joedianreid.n26.Joediann26Application" sourceFile="Joediann26Application.java" interface="false" size="6" bugs="0"/>
+      <ClassStats class="com.joedianreid.n26.Joediann26ApplicationTests" sourceFile="Joediann26ApplicationTests.java" interface="false" size="31" bugs="5" priority_2="5"/>
+      <ClassStats class="com.joedianreid.n26.StatisticControllerTest" sourceFile="StatisticControllerTest.java" interface="false" size="3" bugs="0"/>
     </PackageStats>
     <PackageStats package="com.joedianreid.n26.controller" total_bugs="0" total_types="2" total_size="19">
       <ClassStats class="com.joedianreid.n26.controller.StatisticsController" sourceFile="StatisticsController.java" interface="false" size="6" bugs="0"/>
@@ -142,23 +188,13 @@
       <ClassStats class="com.joedianreid.n26.validators.TransactionValidators" sourceFile="TransactionValidators.java" interface="false" size="24" bugs="0"/>
     </PackageStats>
     <FindBugsProfile>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FieldItemSummary" totalMilliseconds="498" invocations="94" avgMicrosecondsPerInvocation="5301" maxMicrosecondsPerInvocation="355894" standardDeviationMircosecondsPerInvocation="36491"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="415" invocations="730" avgMicrosecondsPerInvocation="568" maxMicrosecondsPerInvocation="51892" standardDeviationMircosecondsPerInvocation="2485"/>
-      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="365" invocations="2" avgMicrosecondsPerInvocation="182956" maxMicrosecondsPerInvocation="268039" standardDeviationMircosecondsPerInvocation="85083"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="324" invocations="727" avgMicrosecondsPerInvocation="447" maxMicrosecondsPerInvocation="8389" standardDeviationMircosecondsPerInvocation="837"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FindNoSideEffectMethods" totalMilliseconds="97" invocations="94" avgMicrosecondsPerInvocation="1041" maxMicrosecondsPerInvocation="10434" standardDeviationMircosecondsPerInvocation="1920"/>
-      <ClassProfile name="edu.umd.cs.findbugs.OpcodeStack$JumpInfoFactory" totalMilliseconds="83" invocations="234" avgMicrosecondsPerInvocation="356" maxMicrosecondsPerInvocation="2355" standardDeviationMircosecondsPerInvocation="407"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.NoteDirectlyRelevantTypeQualifiers" totalMilliseconds="35" invocations="94" avgMicrosecondsPerInvocation="374" maxMicrosecondsPerInvocation="5063" standardDeviationMircosecondsPerInvocation="688"/>
-      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.bcel.IsNullValueDataflowFactory" totalMilliseconds="34" invocations="56" avgMicrosecondsPerInvocation="619" maxMicrosecondsPerInvocation="8339" standardDeviationMircosecondsPerInvocation="1162"/>
-      <ClassProfile name="edu.umd.cs.findbugs.util.TopologicalSort" totalMilliseconds="34" invocations="684" avgMicrosecondsPerInvocation="49" maxMicrosecondsPerInvocation="720" standardDeviationMircosecondsPerInvocation="70"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.FunctionsThatMightBeMistakenForProcedures" totalMilliseconds="31" invocations="94" avgMicrosecondsPerInvocation="337" maxMicrosecondsPerInvocation="3209" standardDeviationMircosecondsPerInvocation="558"/>
-      <ClassProfile name="edu.umd.cs.findbugs.detect.BuildObligationPolicyDatabase" totalMilliseconds="31" invocations="94" avgMicrosecondsPerInvocation="336" maxMicrosecondsPerInvocation="2875" standardDeviationMircosecondsPerInvocation="488"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassInfoAnalysisEngine" totalMilliseconds="6250" invocations="877" avgMicrosecondsPerInvocation="7127" maxMicrosecondsPerInvocation="3165287" standardDeviationMircosecondsPerInvocation="137312"/>
+      <ClassProfile name="edu.umd.cs.findbugs.classfile.engine.ClassDataAnalysisEngine" totalMilliseconds="482" invocations="882" avgMicrosecondsPerInvocation="547" maxMicrosecondsPerInvocation="69395" standardDeviationMircosecondsPerInvocation="2778"/>
+      <ClassProfile name="de.tobject.findbugs.builder.FindBugs2Eclipse" totalMilliseconds="371" invocations="2" avgMicrosecondsPerInvocation="185527" maxMicrosecondsPerInvocation="321890" standardDeviationMircosecondsPerInvocation="136363"/>
     </FindBugsProfile>
   </FindBugsSummary>
   <ClassFeatures></ClassFeatures>
   <History>
-    <AppVersion sequence="0" timestamp="1522033837780" release="" codeSize="0" numClasses="0"/>
-    <AppVersion sequence="1" timestamp="1522033837784" release="" codeSize="55" numClasses="1"/>
-    <AppVersion sequence="2" timestamp="1522033945357" release="" codeSize="54" numClasses="1"/>
+    <AppVersion sequence="0" timestamp="1522034046831" release="" codeSize="0" numClasses="0"/>
   </History>
 </BugCollection>

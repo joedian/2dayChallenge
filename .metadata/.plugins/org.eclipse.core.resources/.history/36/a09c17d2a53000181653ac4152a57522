@@ -34,8 +34,6 @@ public class Joediann26ApplicationTests {
 	
 	private int numberOfTestCalls = 62;
 	
-	private int minNumberOfTestCalls = 5;
-	
 	private int intervalOfCalls = 100;
 	
 	@Autowired
@@ -52,44 +50,19 @@ public class Joediann26ApplicationTests {
 		
 	
 	@Test
-    public void test_201() throws Exception {   
+    public void test_201() throws Exception {      
+			
+		TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow -1000));			
+				
+		Thread.sleep(1000);			
 		
-		int calls = minNumberOfTestCalls;
-			
-		while(calls > 0){
-			TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow -1000));			
-					
-			Thread.sleep(1000);			
-			
-			assertEquals(response.getResponseCode(), 201);
-			
-			calls--;
-		}
-		
-    }
-	
-	@Test(expected = InvalidTransactionException.class)
-    public void test_201_timesOut() throws Exception {   
-		
-		int calls = numberOfTestCalls;
-			
-		while(calls > 0){
-			TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow -1000));			
-					
-			Thread.sleep(1000);			
-			
-			assertEquals(response.getResponseCode(), 201);
-			
-			calls--;
-		}
+		assertEquals(response.getResponseCode(), 201);
 		
     }
 
 	@Test(expected = InvalidTransactionException.class)
     public void test_204_future() throws Exception {      
-    	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow + 40000));		
-    	
-    	assertEquals(response.getResponseCode(), 204);		
+    	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow + 40000));			
 			
     }
     

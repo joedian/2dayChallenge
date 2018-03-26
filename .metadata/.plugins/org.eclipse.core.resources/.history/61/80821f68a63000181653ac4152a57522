@@ -32,9 +32,7 @@ public class Joediann26ApplicationTests {
 	
 	private Long minTimeAllowed = timeNow - 60000;
 	
-	private int numberOfTestCalls = 62;
-	
-	private int minNumberOfTestCalls = 5;
+	private int numberOfTestCalls = 5;
 	
 	private int intervalOfCalls = 100;
 	
@@ -53,23 +51,6 @@ public class Joediann26ApplicationTests {
 	
 	@Test
     public void test_201() throws Exception {   
-		
-		int calls = minNumberOfTestCalls;
-			
-		while(calls > 0){
-			TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow -1000));			
-					
-			Thread.sleep(1000);			
-			
-			assertEquals(response.getResponseCode(), 201);
-			
-			calls--;
-		}
-		
-    }
-	
-	@Test(expected = InvalidTransactionException.class)
-    public void test_201_timesOut() throws Exception {   
 		
 		int calls = numberOfTestCalls;
 			

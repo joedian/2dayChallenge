@@ -1,7 +1,9 @@
 package com.joedianreid.n26.scheduler;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
-import java.time.ZoneOffset;
+import java.time.ZoneId;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,7 +28,7 @@ public class StatisticsGenerator {
 
     @Scheduled(fixedRate = 5000)//run it every five seconds
     public void generateCurrentStatistics() {
-    	 System.out.println("Current timestamp: " +  Instant.now().atOffset(ZoneOffset.UTC ).toInstant().toEpochMilli());
+    	 System.out.println("Current timestamp: " + Instant.now().toEpochMilli());
         statisticService.updateStatistics();
         Statistic stat = statisticService.getCurrentStatistic();
         //log.info("The statistics are now",stat.toString() );
@@ -45,7 +47,7 @@ public class StatisticsGenerator {
     	Transaction transaction = new Transaction();
     	Double rand = Math.random();
     	transaction.setAmount(Math.floor(5D * rand * 10)); //random number generation
-    	transaction.setTimestamp( Instant.now().atOffset(ZoneOffset.UTC ).toInstant().toEpochMilli());
+    	transaction.setTimestamp(Instant.now().toEpochMilli());
         statisticService.addToQue(transaction);
     }
 

@@ -1,7 +1,6 @@
 package com.joedianreid.n26.services;
 
 import java.time.Instant;
-import java.time.ZoneOffset;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
@@ -96,7 +95,7 @@ public class StatisticService {
 			// the last 60 seconds
 			// range now to now - 60000
 			last60SecondsTransactions = transactionQueue.stream()
-					.filter(t -> (t.getTimestamp() >= ( Instant.now().atOffset(ZoneOffset.UTC ).toInstant().toEpochMilli() - 60000)))
+					.filter(t -> (t.getTimestamp() >= (Instant.now().toEpochMilli() - 60000)))
 					.collect(Collectors.toList());
 
 			// update the transaction queue by removing old values

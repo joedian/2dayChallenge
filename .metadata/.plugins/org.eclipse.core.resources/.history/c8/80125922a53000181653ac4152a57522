@@ -1,7 +1,10 @@
 package com.joedianreid.n26.scheduler;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
+import java.util.Date;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -45,7 +48,7 @@ public class StatisticsGenerator {
     	Transaction transaction = new Transaction();
     	Double rand = Math.random();
     	transaction.setAmount(Math.floor(5D * rand * 10)); //random number generation
-    	transaction.setTimestamp( Instant.now().atOffset(ZoneOffset.UTC ).toInstant().toEpochMilli());
+    	transaction.setTimestamp(Instant.now().toEpochMilli());
         statisticService.addToQue(transaction);
     }
 
