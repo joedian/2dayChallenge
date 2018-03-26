@@ -1721,3 +1721,13 @@
 2018-03-25 21:34:20,662 [Worker-291] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2018-03-25 21:34:20,670 [Worker-291] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2018-03-25 21:34:20,677 [Worker-291] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\src\test\resources
+2018-03-25 21:58:58,717 [Worker-307] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-25 21:58:58,863 [Worker-307] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-25 21:58:58,875 [Worker-307] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-25 21:58:58,886 [Worker-307] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-25 21:58:58,887 [Worker-307] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\src\test\resources
+2018-03-25 21:59:54,804 [Worker-268] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-25 21:59:54,810 [Worker-268] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-25 21:59:54,813 [Worker-268] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2018-03-25 21:59:54,849 [Worker-268] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2018-03-25 21:59:54,877 [Worker-268] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\Users\princ\OneDrive\Documents\GitHub\PiggyParadise\2dayChallenge\joediann26\src\test\resources
