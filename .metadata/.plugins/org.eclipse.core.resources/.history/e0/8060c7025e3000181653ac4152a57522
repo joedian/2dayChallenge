@@ -1,0 +1,9 @@
+package com.joedianreid.n26.scheduler;
+
+public class StatisticsGenerator {
+
+	public StatisticsGenerator() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,22 @@
+package validators;
+import com.joedianreid.n26.models.Transaction;
+
+public class TransactionValidators {
+	
+	private static String invalidAmountMessage = "Transaction Amount is invalid.";
+	
+	private static String invalidTimeStampMessage = "Transaction Timestamp is invalid. Time is either too old or in the future.";
+
+	
+
+	public TransactionValidators() {
+		
+	}
+	
+	public void validateTransaction(Transaction transaction) throws Exception{
+		if(transaction == null)
+			throw new InvalidP
+		
+	}
+
+}

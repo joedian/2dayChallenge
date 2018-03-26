@@ -1,6 +1,7 @@
 package com.joedianreid.n26;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatExceptionOfType;
 import static org.junit.Assert.assertEquals;
 
 import java.time.Instant;
@@ -15,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.joedianreid.n26.controller.StatisticsController;
 import com.joedianreid.n26.controller.TransactionController;
+import com.joedianreid.n26.exceptions.InvalidTransactionException;
 import com.joedianreid.n26.models.Transaction;
 import com.joedianreid.n26.models.TransactionResponse;
 
@@ -57,23 +59,19 @@ public class Joediann26ApplicationTests {
 		
     }
 
-    @Test
+	@Test(expected = InvalidTransactionException.class)
     public void test_204_future() throws Exception {      
     	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow + 40000));			
 		
 		Thread.sleep(1000);			
-		
-		assertEquals(response.getResponseCode(), 204);
     }
     
     
-    @Test
+    @Test(expected = InvalidTransactionException.class)
     public void test_204_past() throws Exception {      
     	TransactionResponse response = transactionController.createTransaction(new Transaction(20D, timeNow - 200000));			
 		
 		Thread.sleep(1000);			
-		
-		assertEquals(response.getResponseCode(), 204);
     }
 
 }
